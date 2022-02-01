@@ -1,0 +1,57 @@
+<div *ngIf="loginResponse;else elseBlock">
+
+
+  <div id="navbar-div">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" >TeeJay</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <button class="nav-link" (click)="dashboard()">Home</button>
+          </li>
+          <li >
+            <button class="nav-link" (click)="addEntry()">Add Entry</button>
+          </li>
+          <li >
+            <button class="nav-link" (click)="tradeHistory()">Trade History</button>
+          </li>
+          
+          <li >
+            <button class="nav-link" (click)="logout()">Log Out</button>
+          </li>
+
+          <li >
+            <button class="nav-link">{{loginResponse.lastLogin | uppercase}}</button>
+          </li>
+          
+
+        </ul>
+        <div class="loginId"  ><h3>{{loginResponse.loginId | uppercase}}</h3>
+      </div>
+      </div>
+    </nav>
+    
+      
+    
+  </div>
+
+<div *ngIf="ActiveTradesOn">
+  <app-active-trades></app-active-trades>
+</div>
+</div>
+<ng-template #elseBlock>
+  <h2>Please login again!</h2>
+  <a class="nav-link" routerLink="/login">Login</a>
+  <!-- <div class="spinner-border m-5" role="status">
+    <span class="sr-only"></span>
+  </div> -->
+</ng-template>
+
+
+<router-outlet></router-outlet>

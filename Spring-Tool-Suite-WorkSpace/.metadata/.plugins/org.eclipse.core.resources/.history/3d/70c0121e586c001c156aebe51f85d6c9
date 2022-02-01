@@ -1,0 +1,14 @@
+For Window it worked when I gave the complete path under the Global Tool Configuration:
+C:\Program Files\Git\bin\git.exe
+
+To solve the maven build issue while using mvnw.cmd, use below command.
+
+mvn -N io.takari:maven:wrapper
+or to specify the version
+
+mvn -N io.takari:maven:wrapper -Dmaven=3.3.3
+
+GIT PA TOKEN:
+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
+
+Test

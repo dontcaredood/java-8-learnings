@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=D\:\\Santhosh\\Development\\Jenkins-Learning\\Data\\jenkins-learning\\.git;D\:\\Santhosh\\Development\\Jenkins-Learning\\Data\\jenkins2-course-spring-petclinic\\.git;
+GitRepositoriesView.GitDirectories.relative=D\:\\Santhosh\\Development\\Jenkins-Learning\\Data\\jenkins-learning\\.git;D\:\\Santhosh\\Development\\Jenkins-Learning\\Data\\jenkins2-course-spring-petclinic\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1

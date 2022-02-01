@@ -1,0 +1,50 @@
+<div *ngIf="tradeHistories.length!=0 ; else elseBlock">
+
+    <table>
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th> 
+                <th>Security</th> 
+                <th>Quantity</th> 
+                <th>Entry Date</th>
+                <th>Entry Price</th> 
+                <th>Initial Cap</th> 
+                <th>Exit Price</th> 
+                <th>Close Cap</th> 
+                <th>Net Profit</th> 
+                <th>P/L</th> 
+                <th>PNL %</th> 
+                <th>Entry Reason</th>
+                <th>Exit Reason</th> 
+                <th>Exit Date</th> 
+                <th>Trade Days</th> 
+            </tr>
+        </thead>
+
+        <tr *ngFor="let item of tradeHistories; index as i; first as isFirst ">
+            <td>{{i+1}}</td>
+            <td>{{item.security}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.entryDate}}</td>
+            <td>{{item.entryPrice | currency:'INR'}}</td>
+            <td>{{item.initialCap | currency:'INR'}}</td>
+            <td>{{item.exitPrice | currency:'INR'}}</td>
+            <td>{{item.closeCap | currency:'INR'}}</td>
+            <td>{{item.netProfit | currency:'INR'}}</td>
+            <td>{{item.pnl}}</td>
+            <td>{{item.pnlPercent}}</td>
+            <td>{{item.entryReason}}</td>
+            <td>{{item.exitReason}}</td>
+            <td>{{item.exitDate}}</td>
+            <td>{{item.tradeDays}}</td>
+           
+            
+        </tr>
+    </table>
+</div>
+<ng-template #elseBlock>
+    <h2>Oops! Server not available, please try again.</h2>
+    <!-- <div class="spinner-border m-5" role="status">
+        <span class="sr-only"></span>
+    </div> -->
+</ng-template>

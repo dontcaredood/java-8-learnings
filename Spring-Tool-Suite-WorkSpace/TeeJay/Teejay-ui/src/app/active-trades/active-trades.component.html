@@ -1,0 +1,57 @@
+<button (click)="fetchLTP()"> Show Live Data <i class="fa fa-refresh"></i></button>
+<button (click)="disableLtp()"> Show Entry Data <i class="icon-refresh"></i> </button>
+<div *ngIf="activeTrades.length!=0 ; else elseBlock">
+
+  <table>
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Security</th>
+        <th>Quantity</th>
+        <th>Entry Price</th>
+        <th>Capital</th>
+
+        <th *ngIf="ltpList.length>0">LTP</th>
+        <th *ngIf="ltpList.length>0">P/L</th>
+        <th *ngIf="ltpList.length>0">Current</th>
+        <th *ngIf="ltpList.length>0">P/L %</th>
+        <th>Entry Date</th>
+        <th> Close</th>
+
+      </tr>
+    </thead>
+
+    <tr *ngFor="let item of activeTrades; index as i; first as isFirst ">
+      <td>{{i+1}}</td>
+      <td>{{item.securityName}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.avgPrice | currency:'INR'}}</td>
+      <td>{{item.tradeCaptial | currency:'INR'}}</td>
+
+      <td style="color: rgb(84, 236, 147);" *ngIf="item.arrow=='up' && ltpList.length>0">{{item.LTP.ltp |
+        currency:'INR'}} &uarr;</td>
+      <td style="color: red;" *ngIf="item.arrow=='down'&& ltpList.length>0">{{item.LTP.ltp | currency:'INR'}} &darr;
+      </td>
+      <td style="color: rgb(84, 236, 147);" *ngIf="item.arrow=='up'&& ltpList.length>0">{{item.LTP.pnl |
+        currency:'INR'}} &uarr;</td>
+      <td style="color: red;" *ngIf="item.arrow=='down'&& ltpList.length>0">{{item.LTP.pnl | currency:'INR'}} &darr;
+      </td>
+      <td style="color: red;" *ngIf="item.arrow=='down'&& ltpList.length>0">{{item.LTP.currentCap | currency:'INR'}}
+        &darr;</td>
+      <td style="color: rgb(84, 236, 147);" *ngIf="item.arrow=='up'&& ltpList.length>0">{{item.LTP.currentCap |
+        currency:'INR'}} &uarr;</td>
+      <td style="color: rgb(84, 236, 147);" *ngIf="item.arrow=='up'&& ltpList.length>0">{{item.LTP.pnlPercent |
+        percent}} &uarr;</td>
+      <td style="color: red;" *ngIf="item.arrow=='down'&& ltpList.length>0">{{item.LTP.pnlPercent | percent}} &darr;
+      </td>
+      <td>{{item.entryDate}}</td>
+      <td><button>Close</button></td>
+    </tr>
+  </table>
+</div>
+<ng-template #elseBlock>
+  <h2 style="color: white;">Loading . . . </h2>
+  <div class="spinner-border m-5" role="status">
+    <span class="sr-only"></span>
+  </div>
+</ng-template>
