@@ -1,7 +1,0 @@
-Java 8:
-
-1. Lambdas
-2. Functional Intefaces
-3. Method Interfaces
-4. Method References
-5. Collections improvement

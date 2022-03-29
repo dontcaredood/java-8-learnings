@@ -1,0 +1,34 @@
+Java 8 :
+
+Functionalities:
+    1. Lambdas
+    2. Functional Intefaces
+    3. Method Interfaces
+    4. Method References
+    5. Collections improvement
+
+WHY LAMDA?
+    * Enables functional programming.
+    * Readable and concise code.
+    * Easy to write better APIs and libraries.
+    * Enables support for parallel processing.
+
+CODE IN OOP:
+    * Everything is an object
+    * All code blocks are "associated" with classes and objects
+
+LAMBDA SYNTAX:
+    blockOfCode = () -> {...}   (OR)
+    blockOfCode = () -> statement
+    If your lambda having one statement, you could also remove return statement.
+
+WAYS OF WRITING LAMBDA:
+    * variable = () -> System.out.println("Hey");
+    * variable = (int i) -> a*2; //no return needed.
+    * variable = (int a, int b) -> { if(b==0) return 0; return a/b;}
+
+DATATYPE OF LAMBDA VARIABLE:
+    * Create a interface.
+    * Create a method with same signature of lambda expression.
+    * Mention interface name as datatype.
+    * Method in interface should be 1.
