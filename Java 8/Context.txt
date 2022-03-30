@@ -1,4 +1,5 @@
-Java 8 :
+Java 8 : Santhosh Kumar Pandi - Java Developer
+29-03-2022:
 
 Functionalities:
     1. Lambdas
@@ -32,3 +33,31 @@ DATATYPE OF LAMBDA VARIABLE:
     * Create a method with same signature of lambda expression.
     * Mention interface name as datatype.
     * Method in interface should be 1.
+
+30-03-2022:
+
+CALLING LAMBDA FUNCION:
+    * Lambda is not creating any object of the call for execution.
+    * Normal interface required a class object to execute the function.
+
+    interface Greeting{
+        public void perform();
+    }
+
+CODE EXAMPLE:
+    Both may look very similar, but they are different implementation.
+    //Lambda
+    Greeting greetLambda = () -> {System.out.println("Hello World");}
+
+    (OR)
+    //Interface
+    Greeting greetInnerClass = new Greeting(){
+        public void perform(){
+            System.out.perform("Hello World");
+        }
+    }
+
+TYPE INFERENCE:
+    * Lambda will understand the type of the parameter in the interface.
+    * So we can directly write lambda without datatype of the parameter.
+    * Also if it is only one parameter, we can omit () in lambda syntax.
