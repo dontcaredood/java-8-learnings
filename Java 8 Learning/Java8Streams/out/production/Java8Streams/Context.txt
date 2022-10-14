@@ -1,0 +1,44 @@
+05-04-2022:
+
+STREAMS:
+    * A sequence of elements supporting sequential and parallel aggregate operations.
+    * This is used to replace using multiple complex loops and conditions.
+    * Instead Stream provide much better way to perform those operations.
+    * We can add multiple conditions in single stream and we can perform without creating
+      multiple loops.
+
+            Collection.stream().functions...();
+    * Advantages:
+        Will make you as a efficient programmer.
+        Make heavy use of lambda expressions.
+        ParallelStreams make it very easy to multi-threaded operations.
+
+    * Stream Pipeline consists of
+        1. Source
+            Collections, List, Set, Arrays..
+        2. Followed by Zero or More intermediate operations
+            (filter, map, sort..) Returns a stream, so we can chain multiple operations.
+            Order matters for large datasets. filter() first and then sort() or map().
+            for very large data set use ParallelStream to enable multi threading.
+            Examples:
+                anyMatch();     map();
+                distinct();     findFirst();
+                flatmap();      filter();
+                sorted();       skip();
+        3. Terminal operation
+            (forEach, reduce, collect) returns void or non-stream result.
+            One terminal operation is allowed.
+            forEach() applies the same function to each element.
+            collect() saves the elements into a collection.
+            other options reduce the stream into a single summary element:
+            count()     min()       max()       reduce()
+            summaryStatistics()
+
+INTSTREAM:
+
+RANGE():
+    You can add the list of integer values to stream providing the range.
+SKIP():
+    Skips the elements from the intStream from the element which we mentioned in the function.
+SUM():
+    Adds the values in the stream and returns the sum value as int data type.

@@ -1,0 +1,69 @@
+<!-- <div class="login-main">
+
+    <div *ngIf="errorResponse" style="color: red;"> 
+        <p>{{errorResponse }} </p>
+    </div>
+    <form  #loginForm=ngForm (ngSubmit)="login(loginForm)">
+        <label>Login Id</label><input  ngModel required name="loginId"  type="text"/><br><br>
+        <label>Password</label><input ngModel required name="password"  type="password"/><br><br>
+        <input type="submit" value="Login">
+    </form>
+    
+     <a class="nav-link" routerLink="/signup">Create Account</a>
+</div> -->
+<router-outlet></router-outlet>
+<!-- <img class="tjImage" src="../../assets/TeeJay-logos_white.png"> -->
+<div>
+    <div *ngIf="errorResponse" style="color: red;"> 
+        <p>{{errorResponse }} </p>
+    </div>
+<div>
+  
+  <diV class="login-main">
+    
+      <button onclick="document.getElementById('id01').style.display='block'" >Login</button>
+  
+      <button (click)="signUp()" >Sign Up</button>
+  </diV>
+</div>
+    
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" #loginForm=ngForm (ngSubmit)="login(loginForm)">
+   
+
+    <div class="container">
+      <label for="uname"><b>Login Id</b></label>
+      <input type="text" placeholder="Enter Login Id" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</div>
+
+

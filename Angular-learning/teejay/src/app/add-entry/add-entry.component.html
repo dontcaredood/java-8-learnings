@@ -1,0 +1,11 @@
+<div class="center">
+
+    <h3>Add Trade Entry</h3>
+    <form  #loginForm=ngForm (ngSubmit)="addEntry(loginForm)">
+        <label>Security Name</label><input  ngModel required name="securityName"  type="text"/><br><br>
+        <label>Quantity</label><input ngModel required name="quantity"  type="number"/><br><br>
+        <label>Average Price</label><input ngModel required name="avgPrice"  type="number"/><br><br>
+        <label>Reason</label><input ngModel required name="remarks"  type="text"/><br><br>
+        <input type="submit" value="Add">
+    </form>
+</div>

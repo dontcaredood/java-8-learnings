@@ -1,0 +1,40 @@
+
+body{
+    background-image: url('konaho_image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.main{
+    background-color: rgba(46, 42, 42, 0.6);
+}
+.naruto pre{
+    font-size: 15px;
+    font-family: Arial;   
+    margin: 10px;
+    color: aliceblue;
+}
+.main pre:hover{
+    opacity: 100%;
+    color: antiquewhite;
+}
+.main h1{
+    color: azure;
+    margin-left: 50px;
+}
+.naruto_image{
+    margin-left: 60px;
+    width: 350px;
+}
+
+.button{
+    margin-left: 10px;
+    border: 2px solid ;
+    border-radius: 10px;
+    font-size: larger;
+    opacity: 60%;
+}
+.button:hover{
+    background-color: burlywood;
+    opacity: 100%;
+}

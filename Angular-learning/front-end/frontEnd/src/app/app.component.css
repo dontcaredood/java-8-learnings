@@ -1,0 +1,28 @@
+/* .totalDash {
+    font-size: 20px;
+    color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-style: inset;
+    border: 1px solid white;
+    border-radius: 30px;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 14px
+}
+
+td:hover {
+    background-color: grey;
+} */
+
+p {
+    padding: 10px;
+}
+
+p:hover {
+    font-size: larger;
+    font-weight: bold;
+    padding: 10px;
+}

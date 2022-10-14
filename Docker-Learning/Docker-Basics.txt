@@ -1,0 +1,76 @@
+	Docker:
+------------------------------------------------------------------------------------------------------
+	Docker is a set of platform as a service products that use OS-level virtualization
+	to deliver software in packages called containers.
+	The software that hosts the containers is called Docker Engine. 
+
+	Application -> Image -> Container (with all dependencies)
+------------------------------------------------------------------------------------------------------
+	Docker Version:
+
+		docker --version (or) docker -v
+------------------------------------------------------------------------------------------------------
+	Docker Build:
+	
+		docker image build -t reponame/image_name
+	
+		docker image build -t sample
+------------------------------------------------------------------------------------------------------
+	Docker Run:
+	
+		docker run -d -p portnumber image_name
+		
+		docker run -d -p 80:80 getting-started
+------------------------------------------------------------------------------------------------------
+	Docker Remove Image:
+		
+		docker image rm imageName
+
+		docker image rm sample
+------------------------------------------------------------------------------------------------------
+	Docker Show Images:
+	
+		docker image ls
+------------------------------------------------------------------------------------------------------
+	Docker Show Running Container:
+	
+		docker ps
+------------------------------------------------------------------------------------------------------
+	Docker Stop the container:
+
+		docker stop ContainerId
+------------------------------------------------------------------------------------------------------	
+	Docker Create and Run Container:
+
+		docker container run -d --name NameOfTheContainer -p portNumbers
+		
+		docker container run -d --name Santhosh -p 8000:8080
+------------------------------------------------------------------------------------------------------
+	Docker Start Container:
+		
+		docker conatiner start ContainerName
+		
+		docker container start Santhosh
+------------------------------------------------------------------------------------------------------
+	Docker Stop Container:
+	
+		docker container stop ContainerName
+
+		docker container stop Santhosh
+------------------------------------------------------------------------------------------------------
+	Docker Show All Containers:
+
+		docker container ls -a
+------------------------------------------------------------------------------------------------------
+	Docker Remove Container:
+		
+		docker container rm ContainerName
+		
+		docker container rm Santhosh
+______________________________________________________________________________________________________
+	NOTE:	
+		-d	->	Detached Mode
+		-it	->	Interactive Mode
+		exit	->	kill the container in IT mode
+______________________________________________________________________________________________________
+	

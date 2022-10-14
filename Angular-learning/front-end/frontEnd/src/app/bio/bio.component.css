@@ -1,0 +1,10 @@
+table,
+th,
+tr {
+    color: aliceblue;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-style: inset;
+    padding: 14px;
+    font-size: 20px;
+}

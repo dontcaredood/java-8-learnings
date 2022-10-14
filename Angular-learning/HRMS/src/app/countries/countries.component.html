@@ -1,0 +1,21 @@
+
+<div *ngIf="countriesList.length!=0 ; else elseBlock">
+
+    <table >
+        <thead class="thead-dark">
+            <tr>
+                <th>Country Id</th> <th>Country Name</th><th>Region Id</th>
+            </tr>
+        </thead>
+        
+        <tr *ngFor="let item of countriesList; index as i; first as isFirst ">
+            <td>{{item.countryId}}</td>
+            <td>{{item.countryName}}</td>
+            <td>{{item.regionId}}</td>
+        </tr>
+        </table>
+</div> 
+<ng-template #elseBlock>
+    <h2>Oops! Server not available, please try again.</h2>
+</ng-template>
+<router-outlet></router-outlet>

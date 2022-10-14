@@ -1,0 +1,21 @@
+
+<div *ngIf="jobsList.length!=0 ; else elseBlock">
+
+    <table >
+        <thead class="thead-dark">
+            <tr>
+                <th>Job Id</th> <th>Job Name</th><th>Min Salary</th><th>Max Salary</th>
+            </tr>
+        </thead>
+        
+        <tr *ngFor="let item of jobsList; index as i; first as isFirst ">
+            <td>{{item.jobId}}</td>
+            <td>{{item.jobTitle}}</td>
+            <td>{{item.minSalary}}</td>
+            <td>{{item.maxSalary}}</td>
+        </tr>
+        </table>
+</div> 
+<ng-template #elseBlock>
+    <h2>Oops! Server not available, please try again.</h2>
+</ng-template>

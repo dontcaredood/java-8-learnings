@@ -1,0 +1,25 @@
+<form ngForm> 
+    <label>Stock Name</label><input #stock name="stockName" type="text" required>
+    <button (click)="getDetails(stock.value)">Search</button> 
+</form>
+<div *ngIf="dailyData != undefined; else elseBlock">
+<table>
+    <tr>
+        <td>Ticker Name:</td> <td>{{dailyData.tickerName | uppercase}}</td><br>
+    </tr>
+    <tr>
+        <td>LTP:</td> <td>{{dailyData.ltp}}</td><br>
+    </tr>
+    <tr>
+        <td>Volume:</td> <td>{{dailyData.volume}}</td><br>
+    </tr>
+</table>
+   
+  
+   </div> 
+   <ng-template #elseBlock>
+     <div class="spinner-border m-5" role="status">
+         <span class="sr-only"></span>
+       </div>
+   </ng-template>
+<!--<router-outlet></router-outlet>-->

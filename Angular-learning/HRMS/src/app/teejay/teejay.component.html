@@ -1,0 +1,6 @@
+<p>teejay works!</p>
+<form  #loginForm=ngForm (ngSubmit)="login(loginForm)">
+    <label>Login Id</label><input ngModel name="loginId" type="text"><br><br>
+    <label>Password</label><input ngModel name="password" type="password"><br><br>
+    <input type="submit" value="Login">
+</form>

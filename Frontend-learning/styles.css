@@ -1,0 +1,35 @@
+*{
+    background-color: rgb(19, 157, 199);
+    font-family: 'Courier New', Courier, monospace;
+}
+.main{
+    font-size: x-large;
+    padding: 10px;
+    margin: 30px;
+    width: 40%;
+    text-align: center;
+    border: 2px solid white;
+    float: left;
+    opacity: 50%;
+}
+
+
+.main-2{
+    font-size: x-large;
+    float: right;
+    padding: 10px;
+    margin: 30px;
+    width: 40%;
+    text-align: center;
+    border: 2px solid white;
+    opacity: 50%;
+}
+
+.main:hover, .main-2:hover{
+    opacity: 100%;
+    color: rgb(240, 230, 230);
+    font-style: italic;
+    font-weight: 500;
+    border-radius: 50px;
+    background-color: aquamarine;
+}

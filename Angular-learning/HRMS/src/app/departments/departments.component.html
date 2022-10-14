@@ -1,0 +1,24 @@
+
+<div *ngIf="departmentList.length!=0 ; else elseBlock">
+
+    <table >
+        <thead class="thead-dark">
+            <tr>
+                <th>Department Id</th> <th>Department Name</th><th>Location Id</th>
+            </tr>
+        </thead>
+        
+        <tr *ngFor="let item of departmentList; index as i; first as isFirst ">
+            <td>{{item.departmentId}}</td>
+            <td>{{item.departmentName}}</td>
+            <td>{{item.locationId}}</td>
+        </tr>
+        </table>
+</div> 
+<ng-template #elseBlock>
+    <h2>Oops! Server not available, please try again.</h2>
+    <div class="spinner-border m-5" role="status">
+        <span class="sr-only"></span>
+      </div>
+</ng-template>
+<router-outlet></router-outlet>

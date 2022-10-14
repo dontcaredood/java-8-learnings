@@ -1,0 +1,40 @@
+07-04-2022:
+FUNCTIONAL PROGRAMMING COURSE: Tutor - AMIGOSCODE;
+
+Imperative Programming:
+    Imperative programming is a software development paradigm
+    where functions are implicitly coded in every step required to solve a problem.
+    In imperative programming, every operation is coded and the code itself specifies
+    how the problem is to be solved, which means that pre-coded models are not called on.
+
+Declarative Programming:
+
+	* java.util.function package:
+	
+	*Function:
+	
+    Function<T,R> -> Represents a function that accepts one argument and produces the result.
+    Eg:
+    Function<Integer, Integer> incrementFunction = number -> number++;
+    incrementFunction.apply(8); //Method call
+
+    //Imperative approach:
+    int increment(int number){
+        return number+1 or number++;
+    }
+		.apply
+		.andThen
+		.compose
+	
+	*BiFunction:
+	
+	@FunctionalInterface
+	public interface BiFunction<T,U,R>
+	
+	Represents a function that accepts two arguments and produces a result.
+	This is the two-arity specialization of Function.
+	This is a functional interface whose functional method is apply(Object, Object).
+			
+		
+	
+

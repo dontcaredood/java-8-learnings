@@ -1,0 +1,149 @@
+<button onclick="document.getElementById('id02').style.display='block'">Add Trade</button>
+<button (click)="fetchLTP()"> Show Live Data <i class="fa fa-refresh"></i></button>
+<button (click)="disableLtp()"> Show Entry Data <i class="icon-refresh"></i> </button>
+
+
+
+<div id="activeTrade" style="display: block;">
+    
+    <div class="tradeData">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Instrument <span class="small-nse">(NSE)</span></th>
+                    <th>Quantity</th>
+                    <th>Capital</th>
+                    <th>Entry Price</th>
+                    <th *ngIf="activeTrades[0].arrow=='down'||activeTrades[0].arrow=='up'">LTP</th>
+                    <th *ngIf="activeTrades[0].arrow=='down'||activeTrades[0].arrow=='up'">Change</th>
+                    <th *ngIf="activeTrades[0].arrow=='down'||activeTrades[0].arrow=='up'">Current</th>
+                    <th *ngIf="activeTrades[0].arrow=='down'||activeTrades[0].arrow=='up'">P/L</th>
+                    <th *ngIf="activeTrades[0].arrow=='down'||activeTrades[0].arrow=='up'">P/L %</th>
+                    <th>Entry Date</th>
+                    <th>Click</th>
+
+
+                </tr>
+            </thead>
+
+            <tr *ngFor="let item of activeTrades; index as i; first as isFirst ">
+                <td>{{i+1}}</td>
+                <td>{{item.securityName}} </td>
+                <td class="blue"> {{item.quantity}}</td>
+
+                <td>{{item.tradeCaptial | currency:'INR'}}</td>
+                <td>{{item.avgPrice | currency:'INR'}}</td>
+                <td class="green" *ngIf="item.arrow=='up'">{{item.LTP.ltp | currency:'INR'}} &uarr;</td>
+                <td class="red" *ngIf="item.arrow=='down'">{{item.LTP.ltp | currency:'INR'}} &darr;
+                </td>
+                <td class="green" *ngIf="item.arrow=='up'">{{item.LTP.change}}</td>
+                <td class="red" *ngIf="item.arrow=='down'">{{item.LTP.change}}</td>
+
+                <td *ngIf="item.arrow=='down'||item.arrow=='up'">{{item.LTP.currentCap | currency:'INR'}}</td>
+                <td class="green" *ngIf="item.arrow=='up'">{{item.LTP.pnl | currency:'INR'}} &uarr;</td>
+                <td class="red" *ngIf="item.arrow=='down'">{{item.LTP.pnl | currency:'INR'}} &darr;
+                </td>
+
+                <td class="green" *ngIf="item.arrow=='up'">{{item.LTP.pnlPercent | percent:'1.1-2'}} </td>
+                <td class="red" *ngIf="item.arrow=='down'"> {{item.LTP.pnlPercent | percent:'1.1-2'}}
+                </td>
+                <td>{{item.entryDate}}</td>
+                <div class="dropdown">
+                    <button class="dropbtn">...</button>
+                    <div class="dropdown-content">
+                    <button>Link 1</button>
+                    <button>Link 1</button>
+                    
+                    </div>
+                  </div>
+            </tr>
+           
+        </table>
+    </div>
+
+
+    
+<br><br><br>
+
+<div class="totalDash">
+    <table>
+        <tr>
+            <th>Total Value</th>
+            <th *ngIf="currentValue!=0">Current Value</th>
+            <th *ngIf="totalPnl!=0">Total P&L</th>
+        </tr>
+        <tr>
+            <td>{{totalInvestment | currency:'INR'}}</td>
+            <td *ngIf="currentValue!=0">{{currentValue | currency:'INR'}}</td>
+            <td class="green" *ngIf="totalPnl!=0 && totalPnl > 0">{{totalPnl | currency:'INR'}}<span style="font-size: smaller;">({{totalPnlPercent |percent:'1.1-2'}})</span></td>
+            <td class="red" *ngIf="totalPnl!=0 && totalPnl < 0">{{totalPnl | currency:'INR'}}
+                <span style="font-size: smaller;">({{totalPnlPercent |percent:'1.1-2'}})</span>
+            </td>
+
+        </tr>
+    </table>
+</div>
+
+
+<div id="id01" class="modal ">
+
+    <form class="modal-content animate " #exitForm=ngForm (ngSubmit)="closeTrade(exitForm,inputArrayNumber) ">
+
+        <div class="container">
+
+            <input type="text " value="{{activeTrades[inputArrayNumber].securityName}} -{{activeTrades[inputArrayNumber].quantity}} Q {{activeTrades[inputArrayNumber].avgPrice}} " readonly><br>
+            <label><b>Exit Price</b></label>
+            <input type="number " placeholder="Enter price " ngModel required name="exitPrice">
+            <label><b>Exit remarks</b></label>
+            <input type="text " placeholder="Enter remarks " ngModel required name="exitRemarks">
+            <button type="submit ">Exit</button>
+        </div>
+
+        <div class="container" style=" background-color:#f1f1f1 ">
+            <button type="button " onclick="document.getElementById( 'id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <!-- <span class="psw ">Forgot <a href="# ">password?</a></span> -->
+        </div>
+    </form>
+</div>
+<div id="id02" class="modal">
+
+    <form class="modal-content animate " #exitForm=ngForm (ngSubmit)="closeTrade(exitForm,inputArrayNumber)">
+
+        <div class="container">
+
+            <div>
+
+                <h3>Add Trade Entry</h3>
+                <form #loginForm=ngForm (ngSubmit)="addEntry(loginForm) ">
+                    <label>Security Name</label><input ngModel required name="securityName " type="text " /><br>
+                    <label>Quantity</label><input ngModel required name="quantity " type="number " /><br>
+                    <label>Average Price</label><input ngModel required name="avgPrice " type="number " /><br>
+                    <label>Reason</label><input ngModel required name="remarks " type="text " /><br>
+                    <input type="submit " value="Add ">
+                </form>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1 ">
+            <button type="button " onclick="document.getElementById( 'id02').style.display='none' " class="cancelbtn ">Cancel</button>
+            <!-- <span class="psw ">Forgot <a href="# ">password?</a></span> -->
+        </div>
+    </form>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    var modal2 = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none ";
+        }
+        if (event.target == modal2) {
+            modal2.style.display = "none ";
+        }
+    }
+</script>

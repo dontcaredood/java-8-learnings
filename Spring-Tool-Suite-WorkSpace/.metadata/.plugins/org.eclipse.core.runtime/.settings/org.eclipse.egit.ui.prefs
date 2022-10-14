@@ -1,3 +1,5 @@
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Removed application properties \: sandy</message>\r\n<message>Sysout for author added</message>\r\n</messages>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Age added\!</message>\r\n<message>Removed application properties \: sandy</message>\r\n<message>Sysout for author added</message>\r\n</messages>
 eclipse.preferences.version=1
+resourcehistory_graph_split=500,500
+resourcehistory_rev_split=700,300
 show_running_launch_on_checkout_warning=false

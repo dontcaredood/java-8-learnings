@@ -1,0 +1,2 @@
+//Query to fetch basic details:
+select a.food_name, a.food_cuisine, b.calorie_pg from food_items a inner join food_calories b on b.food_id_fk = a.food_id
